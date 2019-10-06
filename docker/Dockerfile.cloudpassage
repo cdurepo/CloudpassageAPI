@@ -3,5 +3,22 @@ FROM docker.io/halotools/python_tester:${PY_VER}
 
 #Install git hub stuff
 RUN apt update
-RUN apt install -y git python3 python-pip
-RUN pip install cloudpassage
+RUN apt install -y git python3 python3-pip
+RUN pip3 install --upgrade pip
+RUN pip3 install cloudpassage
+
+
+# Setup home diretory
+RUN useradd -m user
+
+#Move to new directory
+RUN cd /home/user
+WORKDIR /home/user
+
+#Get our code from the git hub
+RUN git clone https://github.com/cdurepo/CloudpassageAPI
+
+#Move to the python dir so we can run the exercise easily
+ WORKDIR CloudpassageAPI/python/
+
+ 
