@@ -1,3 +1,19 @@
+#########################################################
+# This file is what I am submitting to do the request APIExercise
+# It will provide a report of some of the top issues via the HALO SDK
+# It will run either directly or in a Docker image.
+# Instructions on how to do both are in the README file.
+# Created by Chris Durepo 10/1/2019
+#########################################################
+
+###
+# Updated by Chris Durepo on 10/2/2019
+# Updated by CGD on 10/3/2019
+# Updated by CGD on 10/4/2019
+# Updated by CGD on 10/5/2019
+# Updated by CGD on 10/6/2019
+
+
 import cloudpassage
 import pprint
 from operator import itemgetter
@@ -44,7 +60,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 
 def get_root_name(session):
-    ### Get root group Name
+    ### Get root group Name for report using the SDK
     # assume that if the parent is none it is the root group
     groups = cloudpassage.ServerGroup(session)
     list_of_groups = groups.list_all()
@@ -58,6 +74,7 @@ def get_root_name(session):
 ### Get get_root_name
 
 def get_csp_findings(session, list_of_csp):
+    ## Get list of CSP findings so we can work through them to rank accounts by the number issues.
     ### Start CSP Findings
     # Top 4 most vulnerable accounts
 
