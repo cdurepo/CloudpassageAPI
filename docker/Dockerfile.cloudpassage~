@@ -1,5 +1,0 @@
-FROM centos:7
-
-#Get SDK from github
-#RUN "pip install cloudpassage"
-
