@@ -1,6 +1,6 @@
 # CloudpassageAPI
 
- ** CloudpassageAPI test to user the SDK to gather information and make a report **
+ **CloudpassageAPI test to user the SDK to gather information and make a report**
 
  ## Summary
  Using the python SDK we are going to make a report as outlined in the APIExercise request.  
