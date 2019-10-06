@@ -155,6 +155,7 @@ def get_configuration_issues(session, list_of_csp):
 def get_server_config_issues(session):
     # Top ten most common server configuration mistakes: CIS IDs, descriptions, and
     #counts.
+    # Get the list of all the CSP issues by server limited to "csm" then count, and order the output.
 
     top_server_issues={}
     csp_issues = cloudpassage.Issue(session)
