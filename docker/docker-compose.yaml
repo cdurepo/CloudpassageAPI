@@ -1,0 +1,15 @@
+
+version: "3"
+services:
+  python:
+    image: cloudpassage/devel:latest
+    command: /bin/bash
+    hostname: cloudpassage
+    tty: True
+    volumes:
+      - ./../:/localDir/:consistent
+    networks:
+      - cloud-net
+
+networks:
+  cloud-net:
