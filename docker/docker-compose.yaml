@@ -3,7 +3,7 @@ version: "3"
 services:
   python:
     image: cloudpassage/devel:latest
-    command: /bin/bash
+    command: /bin/bash -c "cd /home/user/CloudpassageAPI && git pull && tail -f /dev/null"
     hostname: cloudpassage
     tty: True
     volumes:
