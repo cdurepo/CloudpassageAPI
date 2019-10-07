@@ -82,13 +82,15 @@ def get_csp_findings(session, list_of_csp):
     for s in list_of_csp:
         csp_info = cloudpassage.CspFinding(session)
         csp_id_info = csp.list_all(rule_id=[s["rule_id"]])
+        #pp.pprint(csp_id_info)
         for i in csp_id_info:
-            if i["csp_account_id"] in csp_level_issues:
-                csp_level_issues[i["csp_account_id"]]+=1
-            else:
-                csp_level_issues[i["csp_account_id"]]=1
-    csp_level_issues_sorted = sorted(csp_level_issues.items(), key =
-                 lambda kv:(kv[1], kv[0]), reverse=True)
+            if i["result"] == "fail":
+                if i["csp_account_id"] in csp_level_issues:
+                    csp_level_issues[i["csp_account_id"]]+=1
+                else:
+                    csp_level_issues[i["csp_account_id"]]=1
+        csp_level_issues_sorted = sorted(csp_level_issues.items(), key =
+                     lambda kv:(kv[1], kv[0]), reverse=True)
     # Make sure our output is not less than the limit or we will have index errors.
     limit = MAX_REPORT
     if len(csp_level_issues_sorted) < 10:
